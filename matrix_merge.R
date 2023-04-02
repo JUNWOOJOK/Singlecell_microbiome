@@ -45,3 +45,10 @@ vector_KUL_file
 
 singlecell_microbiome_matrix_KUL<-rbindlist(lapply(paste0(vector_KUL_file,"_t"),get),fill = T)%>%as.data.frame()
 rownames(singlecell_microbiome_matrix_KUL)<-rowname_vector
+#########################################################
+singlecell_microbiome_matrix<-rbindlist(list(singlecell_microbiome_matrix_sample,singlecell_microbiome_matrix_KUL),fill = T)%>%as.data.frame()
+r1<-singlecell_microbiome_matrix_sample%>%rownames()
+r2<-singlecell_microbiome_matrix_KUL%>%rownames()
+
+rownames(singlecell_microbiome_matrix)<-c(r1,r2)
+singlecell_microbiome_matrix%>%dim()

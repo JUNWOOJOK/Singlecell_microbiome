@@ -12,11 +12,10 @@ for (i in 1:6){
   assign(paste0('s',i),zzz)
   assign(paste0("s",i,"_t"),t(zzz)%>%as.data.frame())
 }
-singlecell_microbiome_matrix<-rbindlist(lapply(paste0("s",1:6,"_t"),get),fill = T)%>%as.data.frame()
-rownames(singlecell_microbiome_matrix)<-rowname_vector
+singlecell_microbiome_matrix_sample<-rbindlist(lapply(paste0("s",1:6,"_t"),get),fill = T)%>%as.data.frame()
+rownames(singlecell_microbiome_matrix_sample)<-rowname_vector
 
 
-singlecell_microbiome_matrix%>%colnames()
 
 
 
@@ -44,5 +43,5 @@ for (i in c("01","19","21","30","28")){
 }
 vector_KUL_file
 
-singlecell_microbiome_matrix<-rbindlist(lapply(paste0(vector_KUL_file,"_t"),get),fill = T)%>%as.data.frame()
-rownames(singlecell_microbiome_matrix)<-rowname_vector
+singlecell_microbiome_matrix_KUL<-rbindlist(lapply(paste0(vector_KUL_file,"_t"),get),fill = T)%>%as.data.frame()
+rownames(singlecell_microbiome_matrix_KUL)<-rowname_vector
